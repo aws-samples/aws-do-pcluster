@@ -54,3 +54,27 @@ Scheduling:
         LocalStorage:
           RootVolume:
             Size: 80
+    - Name: c5-spot
+      ComputeResources:
+        - Name: c5
+          InstanceType: c5.12xlarge
+          MinCount: 0
+          MaxCount: 500
+          DisableSimultaneousMultithreading: true
+          Efa:
+            Enabled: false
+      CapacityType: SPOT
+      AllocationStrategy: lowest-price
+      Iam:
+        AdditionalIamPolicies:
+          - Policy: arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore
+          - Policy: arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole
+      Networking:
+        SubnetIds:
+          - "${SUBNET_ID}"
+        PlacementGroup:
+          Enabled: false
+      ComputeSettings:
+        LocalStorage:
+          RootVolume:
+            Size: 24
