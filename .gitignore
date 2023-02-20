@@ -1,0 +1,3 @@
+wd/ssh/**
+!wd/ssh/.keep
+wd/config/*.yaml
