@@ -119,7 +119,8 @@
         "sudo /tmp/install-plumed.sh",
         "sudo /tmp/install-conda.sh",
         "sudo /tmp/install-gmx_MMPBSA.sh",
-        "sudo /tmp/patch-gmx_MMPBSA.sh"
+        "sudo /tmp/patch-gmx_MMPBSA.sh",
+	"sudo /tmp/install-tools.sh"
       ]
     }
   ]
