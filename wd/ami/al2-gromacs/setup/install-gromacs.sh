@@ -1,13 +1,20 @@
 #!/bin/bash
 
-######################################################################
-# Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. #
-# SPDX-License-Identifier: MIT-0                                     #
-######################################################################
+#######################################################################
+## Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved. #
+## SPDX-License-Identifier: MIT-0                                     #
+#######################################################################
+
+# Reference: https://github.com/aws-samples/awsome-hpc/blob/main/scripts/install/gromacs_install.sh
+
+echo ""
+echo "Installing gromacs ..."
+echo ""
 
 set -e
 
-GROMACS_DEFAULT_VERSION="v2021.4"
+#GROMACS_DEFAULT_VERSION="v2021.4"
+GROMACS_DEFAULT_VERSION="v2023"
 
 GROMACS_URL=https://gitlab.com/gromacs/gromacs.git
 MODULES_PATH="/usr/share/Modules/modulefiles"
@@ -107,18 +114,33 @@ do
         -DREGRESSIONTEST_DOWNLOAD=OFF \
         -DCMAKE_C_COMPILER=mpicc \
         -DCMAKE_CXX_COMPILER=mpicxx \
+        -DGMX_MPI=OFF \
+        -DGMX_OPENMP=on \
+        -DGMX_DOUBLE=OFF \
+        -DBUILD_SHARED_LIBS=OFF \
+        -DGMXAPI=OFF \
+        -DCMAKE_INSTALL_PREFIX=${GROMACS_PATH} \
+        -DGMX_SIMD=AVX_512
+
+    make -j
+    make install
+
+    echo "Compiling GROMACS MPI code"
+    cmake3 .. \
+        -DGMX_BUILD_OWN_FFTW=ON \
+        -DREGRESSIONTEST_DOWNLOAD=OFF \
+        -DCMAKE_C_COMPILER=mpicc \
+        -DCMAKE_CXX_COMPILER=mpicxx \
         -DGMX_MPI=on \
         -DGMX_OPENMP=on \
         -DGMX_DOUBLE=OFF \
         -DBUILD_SHARED_LIBS=OFF \
         -DGMXAPI=OFF \
+        -DCMAKE_INSTALL_PREFIX=${GROMACS_PATH} \
         -DGMX_SIMD=AVX_512
 
     make -j
-
-    mkdir -p ${GROMACS_PATH}/bin
-    cp ${WORKDIR}/gromacs_git/build/bin/gmx_mpi  ${GROMACS_PATH}/bin/gmx_mpi
-
+    make install
 
     #Create module file
     mkdir -p ${MODULES_PATH}/gromacs
@@ -152,3 +174,4 @@ EOF
     cd
     rm -rf ${WORKDIR}
 done
+

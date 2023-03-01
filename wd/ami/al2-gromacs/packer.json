@@ -114,8 +114,12 @@
     {
       "type": "shell",
       "inline": [
-        "sudo chmod u+x /tmp/install-gromacs.sh",
-        "sudo /tmp/install-gromacs.sh -v {{user `application_version`}}"
+        "sudo chmod u+x /tmp/*.sh",
+        "sudo /tmp/install-gromacs.sh -v {{user `application_version`}}",
+        "sudo /tmp/install-plumed.sh",
+        "sudo /tmp/install-conda.sh",
+        "sudo /tmp/install-gmx_MMPBSA.sh",
+        "sudo /tmp/patch-gmx_MMPBSA.sh"
       ]
     }
   ]
