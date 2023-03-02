@@ -49,6 +49,15 @@ Run the `./exec.sh` script to open a shell in the `aws-do-pcluster` container. A
 
 Execute the `./stop.sh` script to stop and remove the `aws-do-pcluster` container.
 
+## Parallel Cluster UI
+
+Optionally, you can deploy the Parallel Cluster UI in your AWS account by following the instructions in the [aws-parallelcluster-ui](https://github.com/aws/aws-parallelcluster-ui) project.
+
+<img alt="aws-parallelcluster-ui" src="./aws-pcluster-ui-1024.png" width="80%" align="center" />
+
+
+The Parallel Cluster UI is useful for troubleshooting, log viewing, management of your cluster, or accessing the desktop UI of the head node, among others. 
+
 ## Security
 
 See [CONTRIBUTING](CONTRIBUTING.md#security-issue-notifications) for more information.
@@ -62,4 +71,5 @@ This library is licensed under the MIT-0 License. See the LICENSE file.
 * [do-framework](https://bit.ly/do-framework)
 * [AWS ParallelCluster](https://aws.amazon.com/hpc/parallelcluster/)
 * [AWS ParallelCluster Documentation](https://docs.aws.amazon.com/parallelcluster/index.html)
+* [aws-parallelcluster-ui](https://github.com/aws/aws-parallelcluster-ui)
 
