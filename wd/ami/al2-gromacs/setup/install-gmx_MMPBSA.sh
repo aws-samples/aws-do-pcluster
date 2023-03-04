@@ -43,3 +43,6 @@ python -m pip install pyqt5
 # Instal gmx_MMPBSA
 python -m pip install gmx_MMPBSA
 
+# Install python-dotenv
+python -m pip install python-dotenv
+
