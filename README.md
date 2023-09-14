@@ -3,7 +3,7 @@
 # AWS do PCluster (aws-do-pcluster) - <br/>Create and Manage your AWS ParallelCluster infrastructure using the [do-framework](https://bit.ly/do-framework) 
 
 ## Overview
-[AWS Parallel Cluster](https://aws.amazon.com/hpc/parallelcluster) is on open source cluster management tool for deployment and management of High Performance Computing (HPC) clusters on AWS. This project builds a container which contains all prerequisites, tools that are useful when working with Parallel Cluster, and the latest version of the `pcluster` cli. It comes with useful scripts to configure, create, and delete parallel cluster infrastructure. The goal of this project is to make use of Parallel Cluster easy by following the principles of the [do-framework](https://bit.ly/do-framework).
+[AWS Parallel Cluster](https://aws.amazon.com/hpc/parallelcluster) is an open source cluster management tool for deployment and management of High Performance Computing (HPC) clusters on AWS. This project builds a container which has all prerequisites and tools that are useful when working with Parallel Cluster, and the latest version of the `pcluster` cli. It comes with useful scripts to configure, create, and delete parallel cluster infrastructure. The goal of this project is to make use of Parallel Cluster easy by following the principles of the [do-framework](https://bit.ly/do-framework).
 
 ## Build
 
